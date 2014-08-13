@@ -1,0 +1,125 @@
+<HTML>
+<!-- Mirrored from www.regular-expressions.info/javascriptexample.html by HTTrack Website Copier/3.x [XR&CO'2002], Mon, 14 Nov 2005 11:51:17 GMT -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>JavaScript RegExp Example: Regular Expression Tester</TITLE>
+
+<META NAME="Author" CONTENT="Jan Goyvaerts">
+<META NAME="Description" CONTENT="Example of how to use the JavaScript RegExp Object">
+<META NAME="Keywords" CONTENT="">
+<LINK REL=StyleSheet HREF="regex.css" TYPE="text/css">
+</HEAD>
+<BODY BGCOLOR=white TEXT=black>
+<DIV CLASS=top><DIV CLASS=logo><IMG SRC="img/logo.gif" WIDTH=530 HEIGHT=100></DIV></DIV>
+<DIV CLASS=btntop><A CLASS=btntop HREF="tutorial.html" TARGET="_top">&nbsp;Tutorial&nbsp;</A><A CLASS=btntop HREF="tools.html" TARGET="_top">&nbsp;Tools&nbsp;&amp;&nbsp;Languages&nbsp;</A><A CLASS=btntop HREF="examples.html" TARGET="_top">&nbsp;Examples&nbsp;</A><A CLASS=btntop HREF="books.html" TARGET="_top">&nbsp;Books&nbsp;&amp;&nbsp;Reference&nbsp;</A></DIV>
+<DIV CLASS=bodytext>
+<TABLE CLASS=topad>
+<TR><TD VALIGN=top><A HREF="http://www.regexbuddy.com/test.html" TARGET="_top"><IMG SRC="img/rxb48.gif" WIDTH=48 HEIGHT=48 ALT="RegexBuddy" BORDER=0></A></TD>
+<TD CLASS=topad><A HREF="http://www.regexbuddy.com/test.html" TARGET="_top">Iteractively create and test regular expressions with RegexBuddy</A>.<BR>
+<b>Create</b> and analyze regex patterns with RegexBuddy's intuitive regex building blocks.  Quickly <b>test</b> regular expressions on sample data and files in a safe sandbox.  <b>Debug</b> regexes easily with real-time highlighting and informative regex match details. <A HREF="http://www.regexbuddy.com/">Get your own copy of RegexBuddy now</A>.</TD>
+</TR></TABLE>
+
+<H1>JavaScript RegExp Example: Regular Expression Tester</H1>
+
+
+
+<P>Feel free to test JavaScript's RegExp support right here in your browser.  Obviously, JavaScript (also known as ECMAScript) will need to be enabled in your browser for this to work.<P>
+
+<P><A HREF="javascript.html" TARGET="_top">Learn how to use the JavaScript RegExp object</A>.</P>
+
+<SCRIPT LANGUAGE="JavaScript"><!--
+function demoMatchClick() {
+  var re = new RegExp(document.demoMatch.regex.value);
+  if (document.demoMatch.subject.value.match(re)) {
+    alert("Successful match");
+  } else {
+    alert("No match");
+  }
+}
+
+function demoShowMatchClick() {
+  var re = new RegExp(document.demoMatch.regex.value);
+  var m = re.exec(document.demoMatch.subject.value);
+  if (m == null) {
+    alert("No match");
+  } else {
+    var s = "Match at position " + m.index + ":\n";
+    for (i = 0; i < m.length; i++) {
+      s = s + m[i] + "\n";
+    }
+    alert(s);
+  }
+}
+
+function demoReplaceClick() {
+  var re = new RegExp(document.demoMatch.regex.value, "g");
+  document.demoMatch.result.value = 
+    document.demoMatch.subject.value.replace(re, 
+      document.demoMatch.replacement.value);
+}
+// -->
+</SCRIPT>
+
+<FORM ID="demoMatch" NAME="demoMatch" METHOD=POST ACTION="javascript:void(0)">
+<P>Regexp: <INPUT TYPE=TEXT NAME="regex" VALUE="\bt[a-z]+\b" SIZE=50></P>
+<P>Subject string: <INPUT TYPE=TEXT NAME="subject" VALUE="This is a test of the JavaScript RegExp object" SIZE=50></P>
+<P><INPUT TYPE=SUBMIT VALUE="Test Match" ONCLICK="demoMatchClick()">
+<INPUT TYPE=SUBMIT VALUE="Show Match" ONCLICK="demoShowMatchClick()"></P>
+
+<P>Replacement text: <INPUT TYPE=TEXT NAME="replacement" VALUE="replaced" SIZE=50></P>
+<P>Result: <INPUT TYPE=TEXT NAME="result" VALUE="click the button to see the result" SIZE=50></P>
+<P><INPUT TYPE=SUBMIT VALUE="Replace" ONCLICK="demoReplaceClick()"></P>
+</FORM>
+
+<H2>JavaScript RegExp Tester Source Code</H2>
+
+<PRE><SPAN CLASS=longcode>&lt;SCRIPT LANGUAGE="JavaScript"&gt;&lt;!--
+function demoMatchClick() {
+  var re = new RegExp(document.demoMatch.regex.value);
+  if (document.demoMatch.subject.value.match(re)) {
+    alert("Successful match");
+  } else {
+    alert("No match");
+  }
+}
+
+function demoShowMatchClick() {
+  var re = new RegExp(document.demoMatch.regex.value);
+  var m = re.exec(document.demoMatch.subject.value);
+  if (m == null) {
+    alert("No match");
+  } else {
+    var s = "Match at position " + m.index + ":\n";
+    for (i = 0; i &lt; m.length; i++) {
+      s = s + m[i] + "\n";
+    }
+    alert(s);
+  }
+}
+
+function demoReplaceClick() {
+  var re = new RegExp(document.demoMatch.regex.value, "g");
+  document.demoMatch.result.value = 
+    document.demoMatch.subject.value.replace(re, 
+      document.demoMatch.replacement.value);
+}
+// --&gt;
+&lt;/SCRIPT&gt;
+
+&lt;FORM ID="demoMatch" NAME="demoMatch" METHOD=POST ACTION="javascript:void(0)"&gt;
+&lt;P&gt;Regexp: &lt;INPUT TYPE=TEXT NAME="regex" VALUE="\bt[a-z]+\b" SIZE=50&gt;&lt;/P&gt;
+&lt;P&gt;Subject string: &lt;INPUT TYPE=TEXT NAME="subject" 
+   VALUE="This is a test of the JavaScript RegExp object" SIZE=50&gt;&lt;/P&gt;
+&lt;P&gt;&lt;INPUT TYPE=SUBMIT VALUE="Test Match" ONCLICK="demoMatchClick()"&gt;
+&lt;INPUT TYPE=SUBMIT VALUE="Show Match" ONCLICK="demoShowMatchClick()"&gt;&lt;/P&gt;
+
+&lt;P&gt;Replacement text: &lt;INPUT TYPE=TEXT NAME="replacement" VALUE="replaced" SIZE=50&gt;&lt;/P&gt;
+&lt;P&gt;Result: &lt;INPUT TYPE=TEXT NAME="result" 
+   VALUE="click the button to see the result" SIZE=50&gt;&lt;/P&gt;
+&lt;P&gt;&lt;INPUT TYPE=SUBMIT VALUE="Replace" ONCLICK="demoReplaceClick()"&gt;&lt;/P&gt;
+&lt;/FORM&gt;</SPAN></PRE><DIV CLASS=copyright> <P CLASS=copyright>Page URL: <A HREF="javascriptexample.html" TARGET="_top">http://www.Regular-Expressions.info/javascriptexample.html</A><BR> Last Updated: 28 July 2004<BR> Copyright &copy; 2003-2005 Jan Goyvaerts. All rights reserved.</P> </DIV> </DIV> <DIV CLASS=side><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>Regex Tools</TD></TR><TR><TD><A HREF="grep.html" TARGET=_top>grep</A></TD></TR><TR><TD><A HREF="powergrep.html" TARGET=_top>PowerGREP</A></TD></TR><TR><TD><A HREF="regexbuddy.html" TARGET=_top>RegexBuddy</A></TD></TR>
+</TABLE><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>General Applications</TD></TR><TR><TD><A HREF="editpadpro.html" TARGET=_top>EditPad&nbsp;Pro</A></TD></TR>
+</TABLE><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>Languages &amp; Libraries</TD></TR><TR><TD><A HREF="delphi.html" TARGET=_top>Delphi</A></TD></TR><TR><TD><A HREF="java.html" TARGET=_top>Java</A></TD></TR><TR><TD><A HREF="javascript.html" TARGET=_top>JavaScript</A></TD></TR><TR><TD><A HREF="dotnet.html" TARGET=_top>.NET</A></TD></TR><TR><TD><A HREF="pcre.html" TARGET=_top>PCRE</A></TD></TR><TR><TD><A HREF="perl.html" TARGET=_top>Perl</A></TD></TR><TR><TD><A HREF="php.html" TARGET=_top>PHP</A></TD></TR><TR><TD><A HREF="python.html" TARGET=_top>Python</A></TD></TR><TR><TD><A HREF="ruby.html" TARGET=_top>Ruby</A></TD></TR>
+</TABLE><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>More Information</TD></TR><TR><TD><A HREF="index-2.html" TARGET=_top>Introduction</A></TD></TR><TR><TD><A HREF="quickstart.html" TARGET=_top>Quick&nbsp;Start</A></TD></TR><TR><TD><A HREF="tutorial.html" TARGET=_top>Tutorial</A></TD></TR><TR><TD><A HREF="tools.html" TARGET=_top>Tools&nbsp;and&nbsp;Languages</A></TD></TR><TR><TD><A HREF="examples.html" TARGET=_top>Examples</A></TD></TR><TR><TD><A HREF="books.html" TARGET=_top>Books</A></TD></TR><TR><TD><A HREF="reference.html" TARGET=_top>Reference</A></TD></TR><TR><TD><A HREF="about.html" TARGET=_top>About&nbsp;This&nbsp;Site</A></TD></TR><TR><TD><A HREF="print.html" TARGET=_top>Download&nbsp;and&nbsp;Print</A></TD></TR></TABLE><P>&nbsp;</P> <TABLE CLASS=side CELLSPACING=0 CELLPADDING=4> <TR><TD CLASS=sideheader>PowerGREP 3</TD></TR> <TR><TD CLASS=ad><A HREF="http://www.powergrep.com/" TARGET=_top><IMG SRC="img/pgr.gif" WIDTH=32 HEIGHT=32 ALT="PowerGREP" ALIGN=LEFT CLASS=iconleft BORDER=0></A> <A HREF="http://www.powergrep.com/" TARGET=_top>PowerGREP</A> is probably the most powerful regex-based text processing tool available today. A knowledge worker's Swiss army knife for searching through, extracting information from, and updating piles of files.</TD></TR> <TR><TD CLASS=ad>Use regular expressions to search through large numbers of text and binary files, such as source code, correspondence, server or system logs, reference texts, archives, etc. Quickly find the files you are looking for, or extract the information you need. Look through just a handful of files, or thousands of files and folders.</TD></TR> <TR><TD CLASS=ad>Perform comprehensive text and binary replacement operations for easy maintenance of web sites, source code, reports, etc. Preview replacements before modifying files, and stay safe with flexible backup and undo options.</TD></TR> <TR><TD CLASS=ad>Work with plain text files, Unicode files, binary files, files stored in zip archives, and even MS Word documents, Excel spreadsheets and PDF files. Runs on Windows 98, ME, NT4, 2000 &amp; XP.</TD></TR> <TR><TD><A HREF="http://www.powergrep.com/" TARGET=_top>More information</A></TD></TR> <TR><TD><A HREF="http://www.powergrep.com/download.html" TARGET=_top>Download PowerGREP now</A></TD></TR> </TABLE></DIV></BODY>
+<!-- Mirrored from www.regular-expressions.info/javascriptexample.html by HTTrack Website Copier/3.x [XR&CO'2002], Mon, 14 Nov 2005 11:51:17 GMT -->
+</HTML>

@@ -1,0 +1,84 @@
+<HTML>
+<!-- Mirrored from www.regular-expressions.info/examplesprogrammer.html by HTTrack Website Copier/3.x [XR&CO'2002], Mon, 14 Nov 2005 11:50:00 GMT -->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Various Regex Examples for Programmers - Source Code Syntax</TITLE>
+
+<META NAME="Author" CONTENT="Jan Goyvaerts">
+<META NAME="Description" CONTENT="List of various examples how to find or match common constructs in programming languages">
+<META NAME="Keywords" CONTENT="">
+<LINK REL=StyleSheet HREF="regex.css" TYPE="text/css">
+</HEAD>
+<BODY BGCOLOR=white TEXT=black>
+<DIV CLASS=top><DIV CLASS=logo><IMG SRC="img/logo.gif" WIDTH=530 HEIGHT=100></DIV></DIV>
+<DIV CLASS=btntop><A CLASS=btntop HREF="tutorial.html" TARGET="_top">&nbsp;Tutorial&nbsp;</A><A CLASS=btntop HREF="tools.html" TARGET="_top">&nbsp;Tools&nbsp;&amp;&nbsp;Languages&nbsp;</A><A CLASS=btntop HREF="examples.html" TARGET="_top">&nbsp;Examples&nbsp;</A><A CLASS=btntop HREF="books.html" TARGET="_top">&nbsp;Books&nbsp;&amp;&nbsp;Reference&nbsp;</A></DIV>
+<DIV CLASS=bodytext>
+<H1>Example Regexes to Match Common Programming Language Constructs</H1>
+
+<P>Regular expressions are very useful to <A HREF="editpadpro.html" TARGET="_top">manipulate source code in a text editor</A> or in a <A HREF="powergrep.html" TARGET="_top">regex-based text processing tool</A>.  Most programming languages use similar constructs like keywords, comments and strings.  But often there are subtle differences that make it tricky to use the correct regex.  When picking a regex from the list of examples below, be sure to read the description with each regex to make sure you are picking the correct one.</P>
+
+<P>Unless otherwise indicated, all examples below assume that <A HREF="dot.html" TARGET="_top">the dot</A> does <I>not</I> match newlines and that the <A HREF="anchors.html" TARGET="_top">caret and dollar</A> <I>do</I> match at embedded line breaks.  In many programming languages, this means that single line mode must be off, and multi line mode must be on.</P>
+
+<P>When used by themselves, these regular expressions may not have the intended result.  If a comment appears inside a string, the comment regex will consider the text inside the string as a comment.  The string regex will also match strings inside comments.  The solution is to use more than one regular expression, like in this pseudo-code:</P>
+
+<PRE><SPAN CLASS="longcode">GlobalStartPosition := 0;
+<SPAN CLASS="reservedword">while</SPAN> GlobalStartPosition &lt; LengthOfText <SPAN CLASS="reservedword">do</SPAN>
+  GlobalMatchPosition := LengthOfText;
+  MatchedRegEx := NULL;
+  <SPAN CLASS="reservedword">foreach</SPAN> RegEx <SPAN CLASS="reservedword">in</SPAN> RegExList <SPAN CLASS="reservedword">do</SPAN>
+    RegEx.StartPosition := GlobalStartPosition;
+    <SPAN CLASS="reservedword">if</SPAN> RegEx.Match <SPAN CLASS="reservedword">and</SPAN> RegEx.MatchPosition &lt; GlobalMatchPosition <SPAN CLASS="reservedword">then</SPAN>
+      MatchedRegEx := RegEx;
+      GlobalMatchPosition := RegEx.MatchPosition;
+    <SPAN CLASS="reservedword">endif</SPAN>
+  <SPAN CLASS="reservedword">endforeach</SPAN>
+  <SPAN CLASS="reservedword">if</SPAN> MatchedRegEx &lt;&gt; NULL <SPAN CLASS="reservedword">then</SPAN>
+    <SPAN CLASS="comment">// At this point, MatchedRegEx indicates which regex matched
+    // and you can do whatever processing you want depending on
+    // which regex actually matched.</SPAN>
+  <SPAN CLASS="reservedword">endif</SPAN>
+  GlobalStartPosition := GlobalMatchPosition;
+<SPAN CLASS="reservedword">endwhile</SPAN></SPAN></PRE>
+
+<P>If you put a regex matching a comment and a regex matching a string in <TT CLASS=code>RegExList</TT>, then you can be sure that the comment regex will not match comments inside strings, and vice versa.</P>
+
+<P>An alternative solution is to combine regexes: <TT CLASS=regex>(comment)|(string)</TT>.  The <A HREF="alternation.html" TARGET="_top">alternation</A> has the same effect as the code snipped above.  Using backreferences, you can figure out which part of the regex actually matched.  The drawback of this solution is that the combined regular expression quickly becomes difficult to read or maintain.</P>
+
+<H2>Comments</H2>
+
+<P><TT CLASS=regex>#.*$</TT> <A HREF="regexbuddy/commentsingle.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a single-line comment starting with a <TT CLASS=string>#</TT> and continuing until the <A HREF="anchors.html" TARGET="_top">end of the line</A>.  Similarly, <TT CLASS=regex>//.*$</TT> matches a single-line comment starting with <TT CLASS=string>//</TT>.</P>
+
+<P>If the comment must appear at the <A HREF="anchors.html" TARGET="_top">start of the line</A>, use <TT CLASS=regex>^#.*$</TT> <A HREF="regexbuddy/prama.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A>.  If only <A HREF="charclass.html#shorthand">whitespace</A> is allowed between the start of the line and the comment, use <TT CLASS=regex>^\s*#.*$</TT> <A HREF="regexbuddy/pragmaspace.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A>.  Compiler directives or pragmas in C can be matched this way.  Note that in this last example, any leading whitespace will be part of the regex match.  Use <A HREF="brackets.html" TARGET="_top">capturing parentheses</A> to separate the whitespace and the comment.</P>
+
+<P><TT CLASS=regex>/\*.*?\*/</TT> <A HREF="regexbuddy/commentmulti.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a C-style multi-line comment if you turn on the option for <A HREF="dot.html" TARGET="_top">the dot</A> to match newlines.  The general syntax is <TT CLASS=regex>begin.*?end</TT>.  C-style comments do not allow nesting.  If the "begin" part appears inside the comment, it is ignored.  As soon as the "end" part if found, the comment is closed.</P>
+
+<P>If your programming language allows nested comments, there is no straightforward way to match them using a regular expression, since regular expressions cannot count.  Additional logic is required.</P>
+
+<H2>Strings</H2>
+
+<P><TT CLASS=regex>"[^"\r\n]*"</TT> <A HREF="regexbuddy/string.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a single-line string that does not allow the quote character to appear inside the string.  Using the <A HREF="charclass.html" TARGET="_top">negated character class</A> is more efficient than using a lazy dot. <TT CLASS=regex>"[^"]*"</TT> <A HREF="regexbuddy/stringmulti.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> allows the string to span across multiple lines.</P>
+
+<P><TT CLASS=regex>"[^"\\\r\n]*(\\.[^"\\\r\n]*)*"</TT> <A HREF="regexbuddy/stringescaped.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a single-line string in which the quote character can appear if it is escaped by a backslash.  Though this regular expression may seem more complicated than it needs to be, it is much faster than simpler solutions which can cause a whole lot of backtracking in case a double quote appears somewhere all by itself rather than part of a string. <TT CLASS=regex>"[^"\\]*(\\.[^"\\]*)*"</TT> <A HREF="regexbuddy/stringescapedmulti.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> allows the string to span multiple lines.</P>
+
+<P>You can adapt the above regexes to match any sequence delimited by two (possibly different) characters.  If we use <TT CLASS=string>b</TT> for the starting character, <TT CLASS=string>e</TT> and the end, and <TT CLASS=string>x</TT> as the escape character, the version without escape becomes <TT CLASS=regex>b[^e\r\n]*e</TT>, and the version with escape becomes <TT CLASS=regex>b[^ex\r\n]*(x.[^ex\r\n]*)*"</TT>.</P>
+
+<H2>Numbers</H2>
+
+<P><TT CLASS=regex>\b\d+\b</TT> matches a positive integer number.  Do not forget the <A HREF="wordboundaries.html" TARGET="_top">word boundaries</A>!  <TT CLASS=regex>[-+]?\b\d+\b</TT> allows for a sign.</P>
+
+<P><TT CLASS=regex>\b0[xX][0-9a-fA-F]+\b</TT> <A HREF="regexbuddy/hex.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a C-style hexadecimal number.</P>
+
+<P><TT CLASS=regex>((\b[0-9]+)?\.)?[0-9]+\b</TT> <A HREF="regexbuddy/intfloat.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches an integer number as well as a floating point number with optional integer part.  <TT CLASS=regex>(\b[0-9]+\.([0-9]+\b)?|\.[0-9]+\b)</TT> <A HREF="regexbuddy/float.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a floating point number with optional integer as well as optional fractional part, but does not match an integer number.</P>
+
+<P><TT CLASS=regex>((\b[0-9]+)?\.)?\b[0-9]+([eE][-+]?[0-9]+)?\b</TT> <A HREF="regexbuddy/scifloatopt.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> matches a number in scientific notation.  The mantissa can be an integer or floating point number with optional integer part.  The exponent is optional.</P>
+
+<P><TT CLASS=regex>\b[0-9]+(\.[0-9]+)?(e[+-]?[0-9]+)?\b</TT> <A HREF="regexbuddy/scifloat.html"><IMG SRC="img/rxb.gif" WIDTH="16" HEIGHT="16" ALIGN=middle ALT="Analyze this regular expression with RegexBuddy" BORDER=0></A> also matches a number in scientific notation.  The difference with the previous example is that if the mantissa is a floating point number, the integer part is mandatory.</P>
+
+<P>If you read through the <A HREF="floatingpoint.html" TARGET="_top">floating point number example</A>, you will notice that the above regexes are different from what is used there.  The above regexes are more stringent.  They use word boundaries to exclude numbers that are part of other things like identifiers.  You can prepend <TT CLASS=regex>[-+]?</TT> to all of the above regexes to include an optional sign in the regex.  I did not do so above because in programming languages, the + and - are usually considered operators rather than signs.</P>
+
+<H2>Reserved Words or Keywords</H2>
+
+<P>Matching reserved words is easy.  Simply use <A HREF="alternation.html" TARGET="_top">alternation</A> to string them together: <TT CLASS=regex>\b(first|second|third|etc)\b</TT>  Again, do not forget the <A HREF="wordboundaries.html" TARGET="_top">word boundaries</A>.</P><DIV CLASS=copyright> <P CLASS=copyright>Page URL: <A HREF="examplesprogrammer.html" TARGET="_top">http://www.Regular-Expressions.info/examplesprogrammer.html</A><BR> Last Updated: 22 September 2004<BR> Copyright &copy; 2003-2005 Jan Goyvaerts. All rights reserved.</P> </DIV> </DIV> <DIV CLASS=side><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>Examples</TD></TR><TR><TD><A HREF="examples.html" TARGET=_top>Examples</A></TD></TR><TR><TD><A HREF="floatingpoint.html" TARGET=_top>Floating&nbsp;Point&nbsp;Numbers</A></TD></TR><TR><TD><A HREF="dates.html" TARGET=_top>Valid&nbsp;Dates</A></TD></TR><TR><TD><A HREF="completelines.html" TARGET=_top>Matching&nbsp;Complete&nbsp;Lines</A></TD></TR><TR><TD><A HREF="duplicatelines.html" TARGET=_top>Deleting&nbsp;Duplicate&nbsp;Lines</A></TD></TR><TR><TD><A HREF="examplesprogrammer.html" TARGET=_top>Programming</A></TD></TR><TR><TD><A HREF="near.html" TARGET=_top></A></TD></TR>
+</TABLE><TABLE CLASS=side CELLSPACING=0 CELLPADDING=4><TR><TD CLASS=sideheader>More Information</TD></TR><TR><TD><A HREF="index-2.html" TARGET=_top>Introduction</A></TD></TR><TR><TD><A HREF="quickstart.html" TARGET=_top>Quick&nbsp;Start</A></TD></TR><TR><TD><A HREF="tutorial.html" TARGET=_top>Tutorial</A></TD></TR><TR><TD><A HREF="tools.html" TARGET=_top>Tools&nbsp;and&nbsp;Languages</A></TD></TR><TR><TD><A HREF="examples.html" TARGET=_top>Examples</A></TD></TR><TR><TD><A HREF="books.html" TARGET=_top>Books</A></TD></TR><TR><TD><A HREF="reference.html" TARGET=_top>Reference</A></TD></TR><TR><TD><A HREF="about.html" TARGET=_top>About&nbsp;This&nbsp;Site</A></TD></TR><TR><TD><A HREF="print.html" TARGET=_top>Download&nbsp;and&nbsp;Print</A></TD></TR></TABLE><P>&nbsp;</P> <TABLE CLASS=side CELLSPACING=0 CELLPADDING=4> <TR><TD CLASS=sideheader>PowerGREP 3</TD></TR> <TR><TD CLASS=ad><A HREF="http://www.powergrep.com/" TARGET=_top><IMG SRC="img/pgr.gif" WIDTH=32 HEIGHT=32 ALT="PowerGREP" ALIGN=LEFT CLASS=iconleft BORDER=0></A> <A HREF="http://www.powergrep.com/" TARGET=_top>PowerGREP</A> is probably the most powerful regex-based text processing tool available today. A knowledge worker's Swiss army knife for searching through, extracting information from, and updating piles of files.</TD></TR> <TR><TD CLASS=ad>Use regular expressions to search through large numbers of text and binary files, such as source code, correspondence, server or system logs, reference texts, archives, etc. Quickly find the files you are looking for, or extract the information you need. Look through just a handful of files, or thousands of files and folders.</TD></TR> <TR><TD CLASS=ad>Perform comprehensive text and binary replacement operations for easy maintenance of web sites, source code, reports, etc. Preview replacements before modifying files, and stay safe with flexible backup and undo options.</TD></TR> <TR><TD CLASS=ad>Work with plain text files, Unicode files, binary files, files stored in zip archives, and even MS Word documents, Excel spreadsheets and PDF files. Runs on Windows 98, ME, NT4, 2000 &amp; XP.</TD></TR> <TR><TD><A HREF="http://www.powergrep.com/" TARGET=_top>More information</A></TD></TR> <TR><TD><A HREF="http://www.powergrep.com/download.html" TARGET=_top>Download PowerGREP now</A></TD></TR> </TABLE></DIV></BODY>
+<!-- Mirrored from www.regular-expressions.info/examplesprogrammer.html by HTTrack Website Copier/3.x [XR&CO'2002], Mon, 14 Nov 2005 11:50:00 GMT -->
+</HTML>

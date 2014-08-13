@@ -1,0 +1,8 @@
+-qwC2%Ps2u1%sN0%I0p3DaK0H0f2#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2002], %s -->" -P cache22.uct.ac.za:8080 -%l "en, *" http://www.regular-expressions.info/ -O "C:\Documents and Settings\Administrator\Desktop\LockWood\RegEx","C:\Documents and Settings\Administrator\Desktop\LockWood\RegEx" +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -%A php3,php,php2,asp,jsp,pl,cfm=text/html
+File generated automatically on Mon, 14 Nov 2005 13:47:28, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

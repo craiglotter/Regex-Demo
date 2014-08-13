@@ -1,0 +1,2682 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://www.codeproject.com/dotnet/expresso.asp -->
+<HTML><HEAD><TITLE>Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - .NET</TITLE><!-- START Insight XE-->
+<SCRIPT language=JavaScript> 
+var if_Site_ID = "ipro"; 
+var if_sid="1"; 
+var if_protocol=window.location.protocol; 
+var mep1="&Site="+escape("codeproject.com"); 
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ipro_if.js"></SCRIPT>
+<!-- END Insight XE-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="For learning, building, and debugging .NET Framework regular expressions" 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content="Jim Hollenhorst" name=Author>
+<META content="16 Feb 2003 14:00:00 GMT" name=Search.PublishDate>
+<META content="21 Feb 2003 14:00:00 GMT" name=Search.RevisedDate><!--<meta name="Search.UserRating"  content="86 %" /> -->
+<META 
+content="Free source code, .NET, Visual C++, MFC, Windows, Regular Expression, Regex Class, Strings" 
+name=keywords>
+<META 
+content="Article content copyright Jim Hollenhorst, 2003, everthing else Copyright  CodeProject, 1999-2005, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com><LINK 
+href="/favicon.ico" type=image/ico rel=icon><LINK href="/favicon.ico" 
+rel="SHORTCUT ICON"><LINK 
+href="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/global.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/oncopy.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2900.2802" name=GENERATOR></HEAD>
+<BODY oncopy="return copyCode();" text=black vLink=purple aLink=red link=blue 
+bgColor=white leftMargin=3 topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/logo225x72.gif" 
+            width=225 border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4>
+            <TABLE cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><A class=AdLink 
+                  href="http://www.codeproject.com/script/admentor/ads.asp">View 
+                  our advertisers</A></TD>
+                <TD align=right><A class=AdLink 
+                  href="http://www.codeproject.com/info/mediakit">Advertise with 
+                  us</A></TD></TR>
+              <TR>
+                <TD colSpan=2>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1425&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FPureComponents%5F468x60%5FTopBanner%5FSCF%2Egif&C=False&id=1425\" alt=\"Free Source Code from Pure Components\" border=0 width=468 height=60></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=5">.NET</A>, <A 
+                  href="http://www.codeproject.com/?cat=3">C#</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/dotnet/">.NET</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/dotnet/#General">General</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>Expresso - A Tool for Building 
+                  and Testing Regular Expressions</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387">Jim 
+                  Hollenhorst</A> </B><BR><BR><FONT style="FONT-SIZE: 9pt">For 
+                  learning, building, and debugging .NET Framework regular 
+                  expressions&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=200 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C#<BR>Windows, .NET (.NET 
+                        1.0)<BR>Win32, VS (VS.NET2002)<BR>Dev</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 17 Feb 2003 0:00</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>Updated 22 Feb 2003 0:00</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=115387">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>313,249</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=18 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD>
+                  <DIV id=MenuPos 
+                  style="WIDTH: 380px; POSITION: relative; HEIGHT: 20px">
+                  <TABLE height=20 cellSpacing=0 cellPadding=2 width=375>
+                    <TBODY>
+                    <TR>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/store/">StoreFront</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+            <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+            <SCRIPT 
+            src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/cpmenu_var.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT 
+            src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/menu10_com.js" 
+            type=text/javascript></SCRIPT>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fdotnet%2Fexpresso%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fdotnet%2Fexpresso%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/sitebuild_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=Expresso%2Fdotnet2%2F17%2F2003">Broken 
+                  Article?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 from 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>Ultimate Toolbox 
+                  $499</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/print.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/dotnet/expresso.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/link.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fdotnet%2Fexpresso%2Easp&amp;guid=Expresso%2Fdotnet2%2F17%2F2003">Bookmark 
+                  this</A></TD></TR></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/mail.gif" 
+                  width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=Expresso%2Fdotnet2%2F17%2F2003">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>My Profile</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/profile_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp?ct=/dotnet/expresso.asp">My 
+                  Settings</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/submit_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/articles/list_articles.asp?userid=550573">My 
+                  Articles</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/bookmarks.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+                  Bookmarks</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/logoff_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/logoff.asp?ct=/dotnet/expresso.asp">Sign 
+                  out</A></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/space.gif" 
+                  width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1404&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDundas%5F120x600%5FChart5%2Egif&C=False&id=1404\" alt=\"Dundas Chart for .NET\" border=0 width=120 height=600></a>");</SCRIPT>
+            <BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/space.gif" 
+      width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <TABLE width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText vAlign=top noWrap><IMG 
+            src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/prize_winner.gif" 
+            align=absMiddle> &nbsp;<B>Prize winner: February, 2003</B><BR></TD>
+          <TD noWrap align=right><A name=__top></A>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=smallText align=right>168 members have rated this 
+                  article. Result:</TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=2>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/red.gif" 
+                        width=17 border=0><IMG height=5 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/white.gif" 
+                        width=3 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=smallText align=right colSpan=2><A 
+                  title="Calculated as rating x Log10(# votes)" 
+                  href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                  10.83</A>. Rating: <B>4.87</B> out of 
+        5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <UL class=download>
+        <LI><A 
+        href="http://www.codeproject.com/dotnet/Expresso/ExpressoInstallFile.zip">Download 
+        Installation File - 88 Kb</A> 
+        <LI><A 
+        href="http://www.codeproject.com/dotnet/Expresso/Expresso.zip">Download 
+        Source Code - 91 Kb</A> </LI></UL>
+      <P><IMG height=427 alt="" 
+      src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/Expresso.gif" 
+      width=542></P><!-------------------------------     STEP 3      ---------------------------><!--  Add the article text. Please use simple formatting (<h2>, <p> etc)   -->
+      <H2>Introduction</H2>
+      <P>The .NET framework provides a powerful class <CODE>Regex</CODE> for 
+      creating and using Regular Expressions. While regular expressions are a 
+      powerful way to parse, edit, and replace text, the complex syntax makes 
+      them hard to understand and prone to errors, even for the experienced 
+      user. When developing code that uses regular expressions, I have found it 
+      very helpful to create and debug my expressions in a separate tool to 
+      avoid time consuming compile/debug cycles. Expresso enables me to do the 
+      following: 
+      <UL>
+        <LI>
+        <P>Build complex regular expressions by selecting components from a 
+        palette</P>
+        <LI>
+        <P>Test expressions against real or sample input data</P>
+        <LI>
+        <P>Display all matches in a tree structure showing captured groups, and 
+        all captures within a group</P>
+        <LI>
+        <P>Build replacement strings and test the match and replace 
+        functionality</P>
+        <LI>
+        <P>Highlight matched text in the input data</P>
+        <LI>
+        <P>Automatically test for syntax errors</P>
+        <LI>
+        <P>Generate Visual Basic or C# code that can be incorporated directly 
+        into programs</P>
+        <LI>
+        <P>Read or save regular expressions and input data</P></LI></UL>
+      <H2>Background</H2>
+      <P>Regular expressions are a sophisticated generalization of the 
+      "wildcard" syntax that users of Unix, MSDOS, Perl, AWK, and other systems 
+      are already familiar with. For example, in MSDOS, one can say: </P><PRE>dir *.exe
+</PRE>
+      <P>to list all of the files with the <B>exe</B> extension. Here the 
+      asterisk is a wildcard that matches any character string and the period is 
+      a literal that matches only a period. For decades, much more complex 
+      systems have been used to great advantage whenever it is necessary to 
+      search text for complex patterns in order to extract or edit parts of that 
+      text. The .NET framework provides a class called <CODE>Regex</CODE> that 
+      can be used to do search and replace operations using regular expressions. 
+      In .NET, for example, suppose we want to find all the words in a text 
+      string. The expression <B>\w</B> will match any alphanumeric character 
+      (and also the underscore). The asterisk character can be appended to 
+      <B>\w</B> to match an arbitrary number of repetitions of <B>\w</B>, thus 
+      <B>\w*</B> matches all words of arbitrary length that include only 
+      alphanumeric characters (and underscores). </P>
+      <P>Expresso provides a toolbox with which one can build regular 
+      expressions using a set of tab pages from which any of the syntactical 
+      elements can be selected. After building an expression, sample data can be 
+      read or entered manually, and the regular expression can be run against 
+      that data. The results of the search are then displayed, showing the 
+      hierarchy of named groups that <CODE>Regex</CODE> supports. The tool also 
+      allows testing of replacement strings and generation of code to be 
+      inserted directly into a C# or Visual Basic .NET program. 
+      <P>The purpose of this article is not to give a tutorial on the use of 
+      regular expressions, but rather to provide a tool for both experienced and 
+      novice users of regular expressions. Much of the complex behavior of 
+      regular expressions can be learned by experimenting with Expresso. 
+      <P>The reader may also find it helpful to explore some of the code within 
+      Expresso to see examples of the use of regular expressions and the 
+      <CODE>Regex</CODE> class. 
+      <H2>Using Expresso to Build and Test Regular Expressions on Sample Input 
+      Data</H2>
+      <P>To use Expresso, download and run the executable file, which requires 
+      the .NET Framework. If you want to explore the code, download and extract 
+      the source files, open the solution within Visual Studio .NET, then 
+      compile and run the program. Expresso will start with sample data 
+      preloaded into the "Input Data" box (refer to the figure above). Create 
+      your own regular expression or select one of the examples from the list 
+      box. Click "Find Matches" to test the regular expression. The matches are 
+      shown in a tree structure in the "Results" box. Multiple groups and 
+      captures can be displayed by expanding the plus sign as shown above. 
+      <P>To begin experimenting with your own regular expressions, click the 
+      "Show Builder" button. It will display a set of tab pages as shown here: 
+      <P><IMG height=342 
+      src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/RegBuilder.jpg" 
+      width=570 border=0> 
+      <P>In this example, the expression <B>\P{IsGreek}{4,7}?</B> has been 
+      generated by setting options that specify: match strings of four to seven 
+      characters, but with as few repetitions as possible, of any characters 
+      other than Greek letters. By clicking the "Insert" button, this expression 
+      will be inserted into the regular expression that is being constructed in 
+      the text box that contains the regular expression that will be used by the 
+      "FindMatch" or "Replace" buttons. Using the other tab pages, all of the 
+      syntactical elements of .NET regular expressions can be tested. 
+      <P>The <CODE>Regex</CODE> class supports a number of options such as 
+      ignoring the case of characters. These options can be specified using 
+      check boxes on the main form of the application. 
+      <P>Replacement strings may be built using the various expressions found on 
+      the "Substitutions" tab. To test a replacement pattern, enter a regular 
+      expression, a replacement string, some input data, and then click the 
+      "Replace" button. The output will be shown in the "Results" box. 
+      <H2>Using Expresso to Generate Code</H2>
+      <P>Once a regular expression has been thoroughly debugged, code can be 
+      generated by selecting the appropriate option in the "Code" menu. For 
+      example, to generate code for a regular expression to find dates, create 
+      the following regular expression (or select this example from the drop 
+      down list): </P><PRE>(?&lt;Month&gt;\d{<SPAN class=cpp-literal>1</SPAN>,<SPAN class=cpp-literal>2</SPAN>})/(?&lt;Day&gt;\d{<SPAN class=cpp-literal>1</SPAN>,<SPAN class=cpp-literal>2</SPAN>})/(?&lt;Year&gt;(?:\d{<SPAN class=cpp-literal>4</SPAN>}|\d{<SPAN class=cpp-literal>2</SPAN>}))
+</PRE>
+      <P>By selecting the "Make C# Code" from the "Code" menu, the following 
+      code is generated. It can be saved to a file or cut and pasted into a C# 
+      program to create a <CODE>Regex</CODE> object that encapsulates this 
+      particular regular expression. Note that the regular expression itself and 
+      all the selected options are built into the constructor for the new 
+      object: </P><PRE lang=cs><SPAN class=cs-keyword>using</SPAN> System.Text.RegularExpressions;
+
+Regex regex = <SPAN class=cs-keyword>new</SPAN> Regex(
+    @<SPAN class=cpp-string>"(?&lt;Month&gt;\d{1,2})/(?&lt;Day&gt;\d{1,2})/(?&lt;Yea"</SPAN>
+    + @<SPAN class=cpp-string>"r&gt;(?:\d{4}|\d{2}))"</SPAN>,
+    RegexOptions.IgnoreCase
+    | RegexOptions.Multiline
+    | RegexOptions.IgnorePatternWhitespace
+    | RegexOptions.Compiled
+    );
+</PRE>
+      <H2>Points of Interest</H2>
+      <P>After creating this tool, I discovered the Regex Workbench by Eric 
+      Gunnerson, which was designed for the same purpose. Expresso provides more 
+      help in building expressions and gives a more readable display of matches 
+      (in my humble opinion), but Eric's tool has a nice feature that shows 
+      Tooltips that decode the meaning of subexpressions within an expression. 
+      If you are serious about regular expressions, try both of these tools! 
+      <H2>History</H2>
+      <P>Original Version: 2/17/03 
+      <P>Version 1.0.1148: 2/22/03 - Added a few additional features including 
+      the ability to create an assembly file and registration of a new file type 
+      (*.xso) to support Expresso Project Files. 
+      <P>Version 1.0.1149: 2/23/03 - Added a toolbar. 
+      <P>My brother John doesn't like the name Expresso, since he says too many 
+      people are already confused about the proper spelling and pronunciation of 
+      Espresso. Somehow, I doubt this program will have any impact on the 
+      declining literacy of America, but who knows. John prefers my earlier name 
+      "Mr. Mxyzptlk", after the Superman character with the unpronounceable 
+      name. 
+      <P>For the latest information on Expresso (if any), see <A 
+      href="http://www.ultrapico.com/">http://www.ultrapico.com/</A> .<!-------------------------------    That's it!   ---------------------------> 
+      </P><!-- Article Ends --></DIV>
+      <H2>About Jim Hollenhorst</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><BR></TD>
+          <TD class=smallText width="100%">Ultrapico Website: <A 
+            href="http://www.ultrapico.com/">http://www.ultrapico.com/</A><BR><BR>Download 
+            the latest version of the <A 
+            href="http://www.ultrapico.com/Expresso.htm">Expresso</A> regular 
+            expression development tool.<BR>
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=115387">here</A> 
+            to view Jim Hollenhorst's online 
+profile.</P></TD></TR></TBODY></TABLE><BR>
+      <TABLE cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD width="100%">
+            <H2>Other popular articles:</H2>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/dotnet/regextutorial.asp">The 30 
+              Minute Regex Tutorial</A><BR><SPAN class=smalltext>Learn how to 
+              use regular expressions in 30 minutes with Expresso.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/BuildCOMServersInDotNet.asp">Building 
+              COM Servers in .NET</A><BR><SPAN class=smalltext>Learn the 
+              fundamental principles of building COM DLL and EXE Servers using a 
+              .NET language.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/dotnet/ExtremeFloatingPoint1.asp">Floating 
+              Point in .NET part 1: Concepts and Formats</A><BR><SPAN 
+              class=smalltext>Introducing the basic concepts of floating-point 
+              arithmetic: number formats, accuracy and precision, and round-off 
+              error. Includes a discussion of the .NET floating-point 
+              types.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/dotnet/StrongNameExplained.asp">Strong 
+              Names Explained</A><BR><SPAN class=smalltext>.NET Strong Name 
+              technology explained</SPAN></LI></UL></TD>
+          <TD width=360>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=786\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+          </TD></TR></TBODY></TABLE>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=Expresso/dotnet2/17/2003 name=vote_name> <INPUT 
+      type=hidden value=/dotnet/expresso.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/dotnet/expresso.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><I><B>Rate this Article 
+                  for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; <I>Poor</I><INPUT 
+                  type=radio value=1 name=rate><INPUT type=radio value=2 
+                  name=rate><INPUT type=radio value=3 name=rate><INPUT 
+                  type=radio value=4 name=rate><INPUT type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1298&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Futb%5F120x60%2Egif&C=False&id=1298\" alt=\"Hundreds of MFC extension classes to enhance the usability and User Interfaces of MFC applications\" border=0 width=120 height=60></a>");</SCRIPT>
+            </CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=1470\" border=0 frameborder=0 scrolling=no width=468 height=60></IFRAME>");</SCRIPT>
+            </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+
+function MsgCategoryForm(UserID, MsgID, MsgType)
+{
+	document.write("Rate this message: ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' onclick='CatMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + MsgVoteGood.toString() + ")'>Good " + MsgType + "</a> ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' onclick='CatMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + MsgVoteBad.toString() + ")'>Bad " + MsgType + "</a> ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' onclick='CatMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + MsgVoteWrong.toString() + ")'>Innapropriate / Offtopic</a> ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' onclick='CatMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + MsgVoteOffensive.toString() + ")'>Offensive</a> ");
+}
+function CatMsg(userid, msgid, Category) 
+{ 
+	open("/script/comments/vote.asp?js=1&user="+userid.toString()+"&msg="+msgid.toString()+"&score="+Category.toString() ,"helpful","toolbar=no,resizable=yes,scrollbars=yes,directories=no,menubar=no,width=300,height=200");
+	return false;
+}
+
+
+function MsgVoteForm(UserID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString() + "' onclick='return RateMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+}
+
+
+// bit is wrapped in a <span> or something with the id of "vote99999" where 99999 is the message ID
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+            if ( req.responseText.match(/You have already voted/) )
+               status.innerHTML = "<b style='color:red'>Sorry, can't vote twice... <img src='/script/images/smiley_wink.gif'></b>";
+            else
+               status.innerHTML = "<b>Voted: " + score + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status)
+      return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+var Selected = "";
+var AdTime = new Date();
+
+function SwitchMessage(elm)
+{
+	
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	if (Selected != elm.name) 
+	{
+		Selected = elm.name;
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) 
+		{
+			if (elmref.style.display=='none') elmref.style.display='';
+			else elmref.style.display = 'none';
+		}
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) 
+			elmref.bgColor = '#99CCFF';
+	}
+	else
+		Selected="";
+		
+	window.location = "#xx" + Selected + "xx";
+
+	return false;
+}
+
+
+</SCRIPT>
+
+<SCRIPT language=javascript event=onclick for=DynMessLink>
+return SwitchMessage(this);
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/forum_faq.gif" 
+                  width=16 align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise 
+                  tolerance <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=14574"><IMG 
+                  height=15 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/forum_search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0>Normal 
+                    (slow)</OPTION> <OPTION value=2>Preview (slow)</OPTION> 
+                    <OPTION value=5 selected>Message View</OPTION> <OPTION 
+                    value=6>Topic View</OPTION> <OPTION value=1>Thread 
+                    View</OPTION> <OPTION value=3>Expanded (Supporters 
+                    only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD><A name=xx0xx></A>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><IMG height=16 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/forum_newmsg.gif" 
+                  width=16 align=top border=0><A class=HoverLink 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574" 
+                  target=_top name=HoverNL><B>New Message</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 25 of 74 (Total: 74) (<A 
+                  href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <A class=HoverLink 
+                  href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;fr=26" 
+                  name=HoverNL>Next</A> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=messagetitle width="100%">Subject&nbsp;</TD>
+                      <TD class=messagetitle noWrap width=140>Author&nbsp;</TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT 
+                    class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1247783_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1247783xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_question.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1247783#xx1247783xx" 
+                        name=1247783><B>Library Question</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=765612"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>Doncp</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>13:37 7 Oct 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1247783_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>First, 
+                                great Tool!<BR><BR>I created an expression: 
+                                [a-zA-Z]:\\ # Searching for a drive letter, 
+                                followed by a colon (:) and backslash 
+                                (\)<BR><BR>It seemed to work ok in my test, so I 
+                                saved it to the library as: Drive Letter.<BR>I 
+                                exited out of Expresso, started it up again, 
+                                retrieved "Drive Letter", and got an error: Not 
+                                enough )'s. So I thought it didn't like the (:) 
+                                and (\), so I removed them from the expression 
+                                and saved it to the library again as "Driver 
+                                Letter", expecting it to replace the existing 
+                                "Drive Letter". However, it created <BR>another 
+                                "Drive Letter"!<BR><BR>So how do I delete 
+                                expressions from the library?<BR>Why did it 
+                                complain about the (:) and (\)? I know the 
+                                parentheses are special 
+                                characters.<BR><BR>Thanks<BR>:)<BR>Don<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247783">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247783">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1247783&amp;forumid=14574&amp;select=1247783#xx1247783xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1247783#xx1247783xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(765612,1247783);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1248075_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1248075xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_question.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1248075#xx1248075xx" 
+                        name=1248075>Re: Library Question</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=765612"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>Doncp&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>22:44 7 Oct 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1248075_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Whoops 
+                                - I should use the Library Menu (Show Library) 
+                                to delete expressions. <IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_doh.gif" 
+                                align=absMiddle><BR><BR>But, I still need to 
+                                know about the comment 
+                                line.<BR><BR>Thanks<BR><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_smile.gif" 
+                                align=absMiddle><BR>Don 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1248075">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1248075">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1247783&amp;forumid=14574&amp;select=1248075#xx1248075xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1248075#xx1248075xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(765612,1248075);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1249006_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1249006xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_answer.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1249006#xx1249006xx" 
+                        name=1249006>Re: Library Question</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>23:05 9 Oct 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1249006_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Don,<BR><BR>Since your 
+                                question mentions the Library, it must be about 
+                                one of the newer versions of Expresso, not the 
+                                original version in this article. I encourage 
+                                other readers of this reply to always use the 
+                                latest version of Expresso available at the <A 
+                                href="http://ultrapico.com/" 
+                                rel=nofollow>http://ultrapico.com/</A>.<BR><BR>You 
+                                have discovered a small bug in Version 2.1. When 
+                                you save an expression to the library using the 
+                                "Save Expression to Library ..." menu command, 
+                                it clears the Regex options. The "Ignore 
+                                Whitespace" option must be turned on for the 
+                                inline comments to be interpreted properly. 
+                                Please let me know if this does not solve your 
+                                problem.<BR><BR>Regards,<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1249006">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1249006">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1247783&amp;forumid=14574&amp;select=1249006#xx1249006xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1249006#xx1249006xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,1249006);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1194688_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1194688xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1194688#xx1194688xx" 
+                        name=1194688><B>Another tool</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=569700"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>xknown</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>20:05 14 Aug 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1194688_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>This 
+                                helps very much when creating regular 
+                                expressions http://regex.osherove.com/ 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1194688">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1194688">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1194688&amp;forumid=14574&amp;select=1194688#xx1194688xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1194688#xx1194688xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(569700,1194688);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1247309_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1247309xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1247309#xx1247309xx" 
+                        name=1247309>Re: Another tool</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=40893"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Owen 
+                        Gunter&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>6:30 7 Oct 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1247309_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Just a 
+                                plug for your own stuff? Where is the source 
+                                code or is there an article on here? 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247309">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247309">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1194688&amp;forumid=14574&amp;select=1247309#xx1247309xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1247309#xx1247309xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(40893,1247309);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1247526_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1247526xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1247526#xx1247526xx" 
+                        name=1247526>Re: Another tool</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=569700"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>xknown&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>10:04 7 Oct 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1247526_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>The 
+                                source code and binaries are available 
+                                at:<BR>http://sourceforge.net/project/showfiles.php?group_id=105210&amp;package_id=113279<BR><BR>Regards 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247526">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1247526">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1194688&amp;forumid=14574&amp;select=1247526#xx1247526xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1247526#xx1247526xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(569700,1247526);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1192098_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1192098xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1192098#xx1192098xx" 
+                        name=1192098><B>JavaScript code generator</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=173"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle><B>Paul 
+                        Wolfensberger</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>10:46 11 Aug 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1192098_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I love 
+                                the tool.....I just wish it had a JavaScript 
+                                code generator!! <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1192098">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1192098">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1192098&amp;forumid=14574&amp;select=1192098#xx1192098xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1192098#xx1192098xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(173,1192098);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1139824_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1139824xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1139824#xx1139824xx" 
+                        name=1139824><B>Superb!</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=22682"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle><B>Steve 
+                        Schaneville</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>18:17 18 Jun 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1139824_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>This 
+                                tool is excellent. Thanks for your efforts! 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1139824">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1139824">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1139824&amp;forumid=14574&amp;select=1139824#xx1139824xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1139824#xx1139824xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(22682,1139824);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1139859_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1139859xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1139859#xx1139859xx" 
+                        name=1139859>Re: Superb!</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>22:09 18 Jun 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1139859_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Steve,<BR><BR>Thanks for 
+                                your kind words. If you haven't done it all 
+                                ready, be sure to download the latest version of 
+                                Expresso (Version 2.1 as of this date) from the 
+                                <A href="http://www.ultrapico.com/Expresso.htm" 
+                                rel=nofollow>Ultrapico</A>[<A title="New Window" 
+                                href="http://www.ultrapico.com/Expresso.htm" 
+                                target=_blank rel=nofollow>^</A>] web site. You 
+                                might also want to check out the <A 
+                                href="http://www.codeproject.com/dotnet/RegexTutorial.asp" 
+                                rel=nofollow>30 Minute Regex Tutorial</A>[<A 
+                                title="New Window" 
+                                href="http://www.codeproject.com/dotnet/RegexTutorial.asp" 
+                                target=_blank rel=nofollow>^</A>] on the Code 
+                                Project.<BR><BR>Regards,<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1139859">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1139859">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1139824&amp;forumid=14574&amp;select=1139859#xx1139859xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1139859#xx1139859xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,1139859);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1095076_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1095076xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1095076#xx1095076xx" 
+                        name=1095076><B>Good Work</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=792170"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>Het2109</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>4:02 29 Apr 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1095076_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I have 
+                                started to use Expresso, its working fine, 
+                                really a nice job man <IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>Het Waghela<BR><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_smile.gif" 
+                                align=absMiddle>Be Humble in Victory and Strong 
+                                in Defeat.<IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_smile.gif" 
+                                align=absMiddle><BR><FONT face=Verdana 
+                                size=1><BR><A 
+                                title="Het Waghela Blog, Het Waghela" 
+                                href="http://hetwaghela.blogspot.com/">Het 
+                                Waghela, Blog</A>|<A 
+                                title="Het Waghela Dotnet Questions, Het Waghela" 
+                                href="http://members.fortunecity.com/hetwaghela/dotnetfaqs.htm">Het 
+                                Waghela DotNet Questions Link</A>|<A 
+                                title="Het Waghela Link, Het Waghela" 
+                                href="http://members.fortunecity.com/hetwaghela/">More 
+                                Links</A><BR>&nbsp;</FONT></FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1095076">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1095076">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1095076&amp;forumid=14574&amp;select=1095076#xx1095076xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1095076#xx1095076xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(792170,1095076);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1045585_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1045585xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1045585#xx1045585xx" 
+                        name=1045585><B>Unicode</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=1125002"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle><B>wout de 
+                        zeeuw</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>10:08 23 Feb 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1045585_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Hi 
+                                there,<BR><BR>Chinese text from e.g. 
+                                http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwue/html/Wordlists.asp 
+                                isn't supported.<BR>You could use the 
+                                RichTextBox for pasting in example text, this 
+                                supports pasting that kind of 
+                                text.<BR><BR>Wout<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1045585">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1045585">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1045585&amp;forumid=14574&amp;select=1045585#xx1045585xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1045585#xx1045585xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(1125002,1045585);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1046112_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1046112xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1046112#xx1046112xx" 
+                        name=1046112>Re: Unicode</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>22:34 23 Feb 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1046112_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Can you 
+                                give a specific example that does not work? I 
+                                tried several of the words from the page your 
+                                referenced and everything worked just 
+                                fine.<BR><BR>Incidentally, in developing 
+                                Expresso, I did use a RichTextBox for a while, 
+                                using it to highlight text after a successful 
+                                match. I found that the performance could be 
+                                unacceptably slow when there was a lot of text 
+                                to highlight and returned to using a TextBox 
+                                instead.<BR><BR>Regards,<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046112">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046112">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1045585&amp;forumid=14574&amp;select=1046112#xx1046112xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1046112#xx1046112xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,1046112);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1046115_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1046115xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1046115#xx1046115xx" 
+                        name=1046115>Re: Unicode</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>22:37 23 Feb 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1046115_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Oops! I 
+                                ngelected to mention that my remarks concern 
+                                Expresso 2.1. I haven't tested this on the 
+                                original version of Expresso. Please visit <A 
+                                href="http://ultrapico.com/" 
+                                rel=nofollow>http://ultrapico.com/</A>[<A 
+                                title="New Window" href="http://ultrapico.com/" 
+                                target=_blank rel=nofollow>^</A>] to get the 
+                                latest version.<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046115">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046115">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1045585&amp;forumid=14574&amp;select=1046115#xx1046115xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1046115#xx1046115xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,1046115);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1046737_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1046737xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=54><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1046737#xx1046737xx" 
+                        name=1046737>Re: Unicode</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=1125002"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>wout de 
+                        zeeuw&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>14:30 24 Feb 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1046737_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=54><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Hi 
+                                there,<BR><BR>But that one is not free. <IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_smile.gif" 
+                                align=absMiddle><BR>Another idea: show the 
+                                matches/match groups etc in trees so the user 
+                                can navigate through them and see the 
+                                results.<BR><BR>Wout<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046737">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1046737">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1045585&amp;forumid=14574&amp;select=1046737#xx1046737xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1046737#xx1046737xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(1125002,1046737);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1047024_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1047024xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=72><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1047024#xx1047024xx" 
+                        name=1047024>Re: Unicode</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>22:18 24 Feb 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1047024_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=72><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>All 
+                                versions of Expresso are free and show the 
+                                matches and match groups in a 
+                                tree.<BR><BR>Regards,<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1047024">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1047024">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1045585&amp;forumid=14574&amp;select=1047024#xx1047024xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1047024#xx1047024xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,1047024);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1002202_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1002202xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=1002202#xx1002202xx" 
+                        name=1002202><B>Excellent Work</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=345632"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>jairajsun</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>14:51 23 Dec 
+                        '04</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1002202_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Thank 
+                                you. I found it pretty useful. I use Regex 
+                                occassionally and this is a great help. 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1002202">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=1002202">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=1002202&amp;forumid=14574&amp;select=1002202#xx1002202xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=1002202#xx1002202xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(345632,1002202);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=943185_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx943185xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=943185#xx943185xx" 
+                        name=943185><B>An interesting Merge of 
+                        programs...</B></A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>VolpeFox</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>6:33 8 Oct 
+                        '04</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=943185_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I don't 
+                                know if it is legal... but is cool!<BR>I have 
+                                merge 2 Regex-Program: Espresso(your) and The 
+                                Regulator... downloaded from Microsoft...<BR>I 
+                                make "Cappuccino" that have a cool new 
+                                feature... I have added some splits to improve 
+                                the space management in the form and a little 
+                                "Analize that" zone where the Regex is translate 
+                                in English... 
+                                Example:<BR><CODE><BR>(?<MONTH>\d{1,2})/(?<DAY>\d{1,2})/(?<YEAR>(?:\d{4}|\d{2}))(?x) 
+                                # Dates<BR><BR>is <BR><BR>Capture to 
+                                <MONTH><BR>Any digit <BR>At least 1, but not 
+                                more than 2 times<BR>End Capture<BR>/<BR>Capture 
+                                to <DAY><BR>Any digit <BR>At least 1, but not 
+                                more than 2 times<BR>End Capture<BR>/<BR>Capture 
+                                to <YEAR><BR>Non-capturing Group<BR>Any digit 
+                                <BR>Exactly 4 times<BR>or<BR>Any digit 
+                                <BR>Exactly 2 times<BR>End Capture<BR>End 
+                                Capture<BR>Capture<BR>? (zero or one 
+                                time)<BR>x<BR></CODE><BR><BR>sorry.... 
+                                <BR><BR>-=VolpeFox=-<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943185">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943185">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=943185&amp;forumid=14574&amp;select=943185#xx943185xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=943185#xx943185xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943185"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943185"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(0,943185);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=966777_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx966777xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=966777#xx966777xx" 
+                        name=966777>Re: An interesting Merge of 
+                      programs...</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>11:51 6 Nov 
+                        '04&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=966777_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>VolpeFox,<BR><BR>Thanks for 
+                                trying out Expresso. Nothing illegal about it, I 
+                                am happy to have you do whatever you want with 
+                                the code posted here. I agree that your concept 
+                                makes a nice addition, which is why I 
+                                implemented a similar capability in <A 
+                                href="http://www.ultrapico.com/Expresso.htm">Expresso 
+                                2.0</A>[<A title="New Window" 
+                                href="http://www.ultrapico.com/Expresso.htm" 
+                                target=_blank>^</A>] which can translate a 
+                                regular expression into English, display it in a 
+                                TreeView, and embed it in comments in your code. 
+                                It correctly determines that your example has a 
+                                syntax error. For an example similar to yours it 
+                                produces the following:<BR><BR>Regex: 
+                                <CODE>(\d{1,2})/(\d{1,2})/((?:\d{4}|\d{2}))(?x) 
+                                # Dates</CODE><BR><BR>Analyzer results:<BR><BR><PRE>[1]: A numbered capture group. [\d{1,2}]<BR>    Any digit, between 1 and 2 repetitions<BR>/<BR>[2]: A numbered capture group. [\d{1,2}]<BR>    Any digit, between 1 and 2 repetitions<BR>/<BR>[3]: A numbered capture group. [(?:\d{4}|\d{2})]<BR>    Match expression but don't capture it. [\d{4}|\d{2}]<BR>        Select from 2 alternatives<BR>            Any digit, exactly 4 repetitions<BR>            Any digit, exactly 2 repetitions<BR>Change options within the enclosing group [x]<BR>    Turn ON Ignore Pattern Whitespace option<BR>Comment: Dates</PRE><BR><BR>Note 
+                                that Expresso numbered the captured groups, used 
+                                indentation for readability, and properly 
+                                decoded the option change and the 
+                                comment.<BR><BR>Regards,<BR><BR>Jim<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=966777">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=966777">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=943185&amp;forumid=14574&amp;select=966777#xx966777xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=966777#xx966777xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,966777);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=943183_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx943183xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=943183#xx943183xx" 
+                        name=943183><B>An interesting Merge of 
+                        programs...</B></A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>VolpeFox</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>6:31 8 Oct 
+                        '04</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=943183_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I don't 
+                                know if it is legal... but is cool!<BR>I have 
+                                merge 2 Regex-Program: Espresso(your) and The 
+                                Regulator... downloaded from Microsoft...<BR>I 
+                                make "Cappuccino" that have a cool new 
+                                feature... I have added some splits to improve 
+                                the space management in the form and a little 
+                                "Analize that" zone where the Regex is translate 
+                                in English... 
+                                Example:<BR><BR>(?<MONTH>\d{1,2})/(?<DAY>\d{1,2})/(?<YEAR>(?:\d{4}|\d{2}))(?x) 
+                                # Dates<BR><BR>is<BR><BR>Capture to 
+                                <MONTH><BR>Any digit <BR>At least 1, but not 
+                                more than 2 times<BR>End Capture<BR>/<BR>Capture 
+                                to <DAY><BR>Any digit <BR>At least 1, but not 
+                                more than 2 times<BR>End Capture<BR>/<BR>Capture 
+                                to <YEAR><BR>Non-capturing Group<BR>Any digit 
+                                <BR>Exactly 4 times<BR>or<BR>Any digit 
+                                <BR>Exactly 2 times<BR>End Capture<BR>End 
+                                Capture<BR>Capture<BR>? (zero or one time)<BR>x 
+                                <BR><BR>-=VolpeFox=-<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943183">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943183">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=943183&amp;forumid=14574&amp;select=943183#xx943183xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=943183#xx943183xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943183"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943183"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(0,943183);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=941695_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx941695xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=941695#xx941695xx" 
+                        name=941695><B>Carriage return and line feed</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=98842"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>zoomba</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>15:50 6 Oct 
+                        '04</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=941695_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I want 
+                                to change my INI file and have a problem with 
+                                regular expressions (C#)and Expresso too. The 
+                                cntent of the file 
+                                is:<BR><BR>Set=1<BR>Mode=2<BR><BR>I want to 
+                                change it to look 
+                                like:<BR><BR>Set=1<BR>Flag=3<BR>Mode=2<BR><BR>When 
+                                I specifi match: Set=1\r\n it finds Set=1 and 
+                                carriage retirn, line feed OK.<BR>When I specifi 
+                                replace:Set=1\r\nFlag=3\r\n I get the following 
+                                output:<BR><BR>Set=1\r\nFlag=3\rn\Mode=2<BR><BR>What 
+                                is the best thing rto do in this case to get 
+                                desired output?<BR><BR>Thanks a lot. 
+                                <BR><BR>DK<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941695">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941695">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=941695&amp;forumid=14574&amp;select=941695#xx941695xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=941695#xx941695xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 2.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(98842,941695);</SCRIPT>
+                                 
+                    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=941866_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx941866xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=941866#xx941866xx" 
+                        name=941866>Re: Carriage return and line feed</A></TD>
+                      <TD vAlign=bottom><IMG height=13 
+                        alt="Unconfirmed/Anonymous posting" 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/usersuss.gif" 
+                        width=15></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>Anonymous&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>19:51 6 Oct 
+                        '04&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=941866_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=18><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>DK,<BR><BR>If I correctly 
+                                understand your question, try 
+                                this:<BR><BR><B>Regular Expression:</B> 
+                                <BR><CODE>Set=1\r\n</CODE><BR><BR><B>Replacement 
+                                String:</B><BR><CODE>$&amp;Flag=3</CODE><BR><BR>&lt;- 
+                                Note, there is a blank line<BR><BR>That is, 
+                                explicitly include the carriage return and line 
+                                feed in the replacement string.<BR><BR>I hope 
+                                this helps.<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941866">Reply</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=941695&amp;forumid=14574&amp;select=941866#xx941866xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=941866#xx941866xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941866"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941866"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(0,941866);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=941876_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx941876xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=941876#xx941876xx" 
+                        name=941876>Re: Carriage return and line feed</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=98842"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>zoomba&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>20:14 6 Oct 
+                        '04&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=941876_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=36><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I am 
+                                not sure that I understand you. Anyhow I would 
+                                like to insert a line after line Set=1 in the 
+                                file that looks 
+                                like:<BR><BR>Set=1<BR>Mode=2<BR><BR>to look like 
+                                :<BR><BR>Set=1<BR>Flag=3<BR>Mode=2<BR><BR><BR>DK<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941876">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941876">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=941695&amp;forumid=14574&amp;select=941876#xx941876xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=941876#xx941876xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(98842,941876);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=941886_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx941886xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=54><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=941886#xx941886xx" 
+                        name=941886>Re: Carriage return and line feed</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=115387"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Jim 
+                        Hollenhorst&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>20:32 6 Oct 
+                        '04&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=941886_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=54><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>DK,<BR><BR>Did you try my 
+                                suggestion? If so, what happened? I'm suggesting 
+                                that you <I><B>not</B></I> use the 
+                                <CODE>\r\n</CODE> escape sequences within the 
+                                replacement string. Rather, just put the end of 
+                                line characters explicitly into the end of your 
+                                replacement string. If you are using Expresso, 
+                                just hit the enter key, leaving a blank line at 
+                                the end of your replacement 
+                                string.<BR><BR>Regards,<BR><BR>Jim 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941886">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=941886">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=941695&amp;forumid=14574&amp;select=941886#xx941886xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=941886#xx941886xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(115387,941886);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=943719_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx943719xx></A><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=72><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=943719#xx943719xx" 
+                        name=943719>Re: Carriage return and line feed</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=98842"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>zoomba&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>20:24 8 Oct 
+                        '04&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=943719_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/ind.gif" 
+                        width=72><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Jim,<BR>I was confused 
+                                because Expresso that I had was 1.o version from 
+                                Codeproject, so I couldnt have blank line at 
+                                the end of the replacement string. I downloaded 
+                                2.0 version and everything works great (with 
+                                multi line replacement text box).<BR><BR>Are 
+                                there any solutions if I want to use 
+                                Regex.Replace method, 
+                                like:<BR><BR>Regex.Replace(Set=1\r\nMode=2, 
+                                Set=1\r\n, $&amp;Flag=3 + .what 
+                                now?)<BR><BR>Thanks a lot 
+                                Jim.<BR><BR><BR>DK<BR><BR>P.S. Expresso rocks! 
+                                Five from me.<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943719">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=943719">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=941695&amp;forumid=14574&amp;select=943719#xx943719xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=943719#xx943719xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(98842,943719);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=921933_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx921933xx></A><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;select=921933#xx921933xx" 
+                        name=921933><B>Your code runneth over</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=621666"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>CodeStalker</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>12:54 11 Sep 
+                        '04</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=921933_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_blank.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>This is 
+                                so nice. <B>Thanks very much</B> for sharing 
+                                your brilliant work.<IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_tongue.gif" 
+                                align=absMiddle><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_tongue.gif" 
+                                align=absMiddle><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_tongue.gif" 
+                                align=absMiddle><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_tongue.gif" 
+                                align=absMiddle><IMG 
+                                src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/smiley_tongue.gif" 
+                                align=absMiddle> <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=921933">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/dotnet/expresso.asp&amp;df=100&amp;forumid=14574&amp;select=921933">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;tid=921933&amp;forumid=14574&amp;select=921933#xx921933xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/dotnet/expresso.asp?msg=921933#xx921933xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(621666,921933);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/t.gif" 
+                  width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 7:57 Monday 16th January, 
+                  2006</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <A class=HoverLink 
+                  href="http://www.codeproject.com/dotnet/expresso.asp?df=100&amp;forumid=14574&amp;fr=26" 
+                  name=HoverNL>Next</A> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<P class=smallText><IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_general.gif" 
+align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_info.gif" 
+align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_question.gif" 
+align=absMiddle> Question &nbsp;&nbsp; <IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_answer.gif" 
+align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_game.gif" 
+align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/news_sticky.gif" 
+align=absMiddle> Admin message</P><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=5">.NET</A>, <A 
+      href="http://www.codeproject.com/?cat=3">C#</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/dotnet/">.NET</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/dotnet/#General">General</A> <BR>Updated: 
+      22 Feb 2003 0:00 </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Jim Hollenhorst, 2003<BR>everything else Copyright  <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2005</A>. 
+      <BR>Web11 | <A href="http://www.codeproject.com/info/MediaKit">Advertise 
+      on The Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="Expresso - A Tool for Building and Testing Regular Expressions - The Code Project - _NET_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A>  <A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://www.aspalliance.com/">ASP Alliance</A>  <A 
+      href="http://www.developerfusion.co.uk/">Developer Fusion</A>  <A 
+      href="http://www.developersdex.com/">Developersdex</A>  <A 
+      href="http://www.devguru.com/">DevGuru</A>  <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A>  <A 
+      href="http://www.planet-source-code.com/">Planet Source Code</A>  <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A>  
+</FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>
